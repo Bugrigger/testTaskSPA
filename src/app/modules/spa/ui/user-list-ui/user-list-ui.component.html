@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let spa of spaList">
+    <label for="">
+      <input type="checkbox" name="" id="" [checked]="spa.completed">
+      <span *ngIf="spa.completed">{{spa.name}}</span>
+      <del *ngIf="!spa.completed"><span>{{spa.name}}</span></del>
+    </label>
+  </li>
+</ul>

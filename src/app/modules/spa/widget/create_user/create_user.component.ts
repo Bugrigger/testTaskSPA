@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { spa } from '../../model/spa';
+import { spaCreateUser } from '../../store/spa_app/spa.actions';
+import { pipe } from 'rxjs';
+import { SpaState } from '../../store/spa_app/spa.reducer';
+import { userFeatureSelector } from '../../store/spa_app/spa.selectors';
+import { spaListSelector } from '../../store/spa_app/spa.selectors';
 
 @Component({
   selector: 'app-create_user',
@@ -7,9 +15,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Create_userComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private store$: Store<SpaState>) { }
 
   ngOnInit() {
   }
+
+  onCreate(name: string) {
+    console.log(name);
+    this.store$.dispatch(new spaCreateUser({ name }));
+
+  }
+
+  spaList$: Observable<spa[]> = this.store$.pipe(select(spaListSelector));
 
 }

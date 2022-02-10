@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-user-create-form',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class UserCreateFormComponent implements OnInit {
   name = '';
 
+  @Output()
+  create = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {
@@ -16,7 +20,8 @@ export class UserCreateFormComponent implements OnInit {
   onCreate(event: any) {
 
     if (this.name) {
-      console.log(this.name);
+      this.create.emit(this.name);
+      this.name = '';
     }
 
 

@@ -1,3 +1,5 @@
 <h1>Create User</h1>
 
-<app-user-create-form></app-user-create-form>
+<app-user-create-form (create)="onCreate($event)"></app-user-create-form>
+
+<app-user-list-ui [spaList]="spaList$"></app-user-list-ui>

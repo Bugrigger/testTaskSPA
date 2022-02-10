@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AddUserComponent } from './page/add-user/add-user.component';
 import { Create_userComponent } from './widget/create_user/create_user.component';
 import { UserCreateFormComponent } from './ui/user-create-form/user-create-form.component';
+import { UserListUiComponent } from './ui/user-list-ui/user-list-ui.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,9 @@ import { UserCreateFormComponent } from './ui/user-create-form/user-create-form.
       component: AddUserComponent,
     }])
   ],
-  declarations: [SpaComponent, Create_userComponent, AddUserComponent, UserCreateFormComponent]
+  declarations: [SpaComponent, Create_userComponent,
+    AddUserComponent,
+    UserCreateFormComponent,
+    UserListUiComponent]
 })
 export class SpaModule { }
