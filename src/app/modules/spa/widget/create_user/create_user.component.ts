@@ -3,9 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { spa } from '../../model/spa';
 import { spaCreateUser } from '../../store/spa_app/spa.actions';
-import { pipe } from 'rxjs';
 import { SpaState } from '../../store/spa_app/spa.reducer';
-import { userFeatureSelector } from '../../store/spa_app/spa.selectors';
 import { spaListSelector } from '../../store/spa_app/spa.selectors';
 
 @Component({
@@ -15,7 +13,7 @@ import { spaListSelector } from '../../store/spa_app/spa.selectors';
 })
 export class Create_userComponent implements OnInit {
 
-
+  spaList$: Observable<spa[]> = this.store$.pipe(select(spaListSelector));
 
   constructor(private store$: Store<SpaState>) { }
 
@@ -28,6 +26,6 @@ export class Create_userComponent implements OnInit {
 
   }
 
-  spaList$: Observable<spa[]> = this.store$.pipe(select(spaListSelector));
+
 
 }
